@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Działania na liczbach</title>
+</head>
+<body>
+    <h1>Działania na liczbach</h1>
+    <form id="kalkulator">
+        <label for="a">Liczba a:</label>
+        <input type="number" id="a" step="any">
+        <br>
+        <label for="b">Liczba b:</label>
+        <input type="number" id="b" step="any">
+        <br>
+        <button type="button" data-dzialanie="dodawanie">Dodawanie</button>
+        <button type="button" data-dzialanie="odejmowanie">Odejmowanie</button>
+        <button type="button" data-dzialanie="mnozenie">Mnożenie</button>
+        <button type="button" data-dzialanie="dzielenie">Dzielenie</button>
+        <button type="button" data-dzialanie="reszta">Reszta z dzielenia</button>
+        <button type="button" data-dzialanie="calkowite">Dzielenie całkowite</button>
+    </form>
+    <p id="wynik" aria-live="polite"></p>
+
+    <script>
+        const kalkulator = document.getElementById("kalkulator");
+        const wynik = document.getElementById("wynik");
+
+        kalkulator.addEventListener("click", (event) => {
+            const przycisk = event.target.closest("button[data-dzialanie]");
+            if (!przycisk) return;
+
+            const poleA = document.getElementById("a");
+            const poleB = document.getElementById("b");
+            if (poleA.value === "" || poleB.value === "") {
+                wynik.textContent = "Wypełnij oba pola liczbami.";
+                return;
+            }
+
+            const a = Number(poleA.value);
+            const b = Number(poleB.value);
+            if (!Number.isFinite(a) || !Number.isFinite(b)) {
+                wynik.textContent = "Wprowadź prawidłowe liczby.";
+                return;
+            }
+
+            let rezultat;
+            switch (przycisk.dataset.dzialanie) {
+                case "dodawanie":
+                    rezultat = a + b;
+                    break;
+                case "odejmowanie":
+                    rezultat = a - b;
+                    break;
+                case "mnozenie":
+                    rezultat = a * b;
+                    break;
+                case "dzielenie":
+                    if (b === 0) {
+                        wynik.textContent = "Nie można dzielić przez zero.";
+                        return;
+                    }
+                    rezultat = a / b;
+                    break;
+                case "reszta":
+                    if (b === 0) {
+                        wynik.textContent = "Nie można obliczyć reszty z dzielenia przez zero.";
+                        return;
+                    }
+                    rezultat = a % b;
+                    break;
+                case "calkowite":
+                    if (b === 0) {
+                        wynik.textContent = "Nie można dzielić przez zero.";
+                        return;
+                    }
+                    rezultat = Math.trunc(a / b);
+                    break;
+            }
+            wynik.textContent = `Wynik: ${rezultat}`;
+        });
+    </script>
+</body>
+</html>

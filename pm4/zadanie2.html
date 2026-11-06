@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszt dowozu pizzy</title>
+</head>
+<body>
+    <h1>Koszt dowozu pizzy</h1>
+    <form>
+        <label for="kilometry">Ilość kilometrów:</label>
+        <input type="number" id="kilometry" min="0" step="any">
+        <br>
+        <label for="gdansk">Jestem z Gdańska</label>
+        <input type="checkbox" id="gdansk">
+    </form>
+    <p id="wynik" aria-live="polite"></p>
+
+    <script>
+        const kilometry = document.getElementById("kilometry");
+        const gdansk = document.getElementById("gdansk");
+        const wynik = document.getElementById("wynik");
+
+        function obliczDowoz() {
+            if (gdansk.checked) {
+                wynik.textContent = "Dowieziemy Twoją pizzę za darmo";
+                return;
+            }
+            if (kilometry.value === "") {
+                wynik.textContent = "Podaj ilość kilometrów.";
+                return;
+            }
+
+            const odleglosc = Number(kilometry.value);
+            if (!Number.isFinite(odleglosc) || odleglosc < 0) {
+                wynik.textContent = "Podaj nieujemną liczbę kilometrów.";
+                return;
+            }
+
+            wynik.textContent = `Dowóz będzie Cię kosztował ${(odleglosc * 2).toFixed(2)} zł`;
+        }
+
+        kilometry.addEventListener("input", obliczDowoz);
+        gdansk.addEventListener("change", obliczDowoz);
+    </script>
+</body>
+</html>

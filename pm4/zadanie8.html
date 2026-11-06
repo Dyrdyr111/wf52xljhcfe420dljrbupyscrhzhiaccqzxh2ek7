@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszt wejściówek do aquaparku</title>
+</head>
+<body>
+    <h1>Kalkulator wejściówek do aquaparku</h1>
+    <form id="formularz">
+        <label for="normalne">Ilość biletów normalnych:</label>
+        <input type="number" id="normalne" min="0" step="1" required>
+        <br>
+        <label for="ulgowe">Ilość biletów ulgowych:</label>
+        <input type="number" id="ulgowe" min="0" step="1" required>
+        <br>
+        <label for="godziny">Ilość godzin:</label>
+        <input type="number" id="godziny" min="0.01" step="any" required>
+        <br>
+        <label for="karta">Karta dużej rodziny</label>
+        <input type="checkbox" id="karta">
+        <br>
+        <button type="submit">Oblicz</button>
+    </form>
+    <p id="wynik" aria-live="polite"></p>
+
+    <script>
+        const formularz = document.getElementById("formularz");
+        const normalne = document.getElementById("normalne");
+        const ulgowe = document.getElementById("ulgowe");
+        const godziny = document.getElementById("godziny");
+        const karta = document.getElementById("karta");
+        const wynik = document.getElementById("wynik");
+
+        formularz.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const liczbaNormalnych = Number(normalne.value);
+            const liczbaUlgowych = Number(ulgowe.value);
+            const liczbaGodzin = Number(godziny.value);
+            if (!Number.isInteger(liczbaNormalnych) || liczbaNormalnych < 0 ||
+                !Number.isInteger(liczbaUlgowych) || liczbaUlgowych < 0) {
+                wynik.textContent = "Podaj nieujemne, całkowite liczby biletów.";
+                return;
+            }
+            if (!Number.isFinite(liczbaGodzin) || liczbaGodzin <= 0) {
+                wynik.textContent = "Podaj dodatnią liczbę godzin.";
+                return;
+            }
+
+            const darmoweNormalne = Math.floor(liczbaUlgowych / 15);
+            const platneNormalne = Math.max(0, liczbaNormalnych - darmoweNormalne);
+            const stawkaNormalna = liczbaGodzin > 4 ? 50 : liczbaGodzin * 10;
+            const stawkaUlgowa = liczbaGodzin > 4 ? 25 : liczbaGodzin * 5;
+            let koszt = platneNormalne * stawkaNormalna + liczbaUlgowych * stawkaUlgowa;
+            if (karta.checked) koszt *= 0.9;
+
+            wynik.textContent = `Całkowity koszt wstępu do aquaparku: ${koszt.toFixed(2)} zł`;
+        });
+    </script>
+</body>
+</html>

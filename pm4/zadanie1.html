@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kalkulator kosztu wesela</title>
+</head>
+<body>
+    <h1>Kalkulator kosztu wesela</h1>
+    <form>
+        <label for="goscie">Ilość gości:</label>
+        <input type="number" id="goscie" min="0" step="1">
+        <br>
+        <label for="poprawiny">Poprawiny</label>
+        <input type="checkbox" id="poprawiny">
+    </form>
+    <p id="wynik" aria-live="polite"></p>
+
+    <script>
+        const goscie = document.getElementById("goscie");
+        const poprawiny = document.getElementById("poprawiny");
+        const wynik = document.getElementById("wynik");
+
+        function obliczKoszt() {
+            if (goscie.value === "") {
+                wynik.textContent = "";
+                return;
+            }
+
+            const liczbaGosci = Number(goscie.value);
+            if (!Number.isInteger(liczbaGosci) || liczbaGosci < 0) {
+                wynik.textContent = "Podaj nieujemną, całkowitą liczbę gości.";
+                return;
+            }
+
+            const koszt = liczbaGosci * 100 * (poprawiny.checked ? 1.3 : 1);
+            wynik.textContent = `Całkowity koszt wesela: ${koszt.toFixed(2)} zł`;
+        }
+
+        goscie.addEventListener("input", obliczKoszt);
+        poprawiny.addEventListener("change", obliczKoszt);
+    </script>
+</body>
+</html>

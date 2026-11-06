@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Koszt ogłoszeń</title>
+</head>
+<body>
+    <h1>Kalkulator kosztu ogłoszeń</h1>
+    <p id="wynik" aria-live="polite"></p>
+    <form id="formularz">
+        <label for="ilosc">Liczba ogłoszeń:</label>
+        <input type="number" id="ilosc" min="1" step="1" required>
+        <br>
+        <label for="staly">Stały klient</label>
+        <input type="checkbox" id="staly">
+        <br>
+        <button type="submit">Oblicz</button>
+    </form>
+
+    <script>
+        const formularz = document.getElementById("formularz");
+        const ilosc = document.getElementById("ilosc");
+        const staly = document.getElementById("staly");
+        const wynik = document.getElementById("wynik");
+
+        formularz.addEventListener("submit", (event) => {
+            event.preventDefault();
+            const liczba = Number(ilosc.value);
+            if (!Number.isInteger(liczba) || liczba < 1) {
+                wynik.textContent = "Podaj dodatnią, całkowitą liczbę ogłoszeń.";
+                return;
+            }
+
+            let koszt;
+            if (liczba <= 50) {
+                koszt = liczba * 2;
+            } else if (liczba <= 100) {
+                koszt = 50 * 2 + (liczba - 50) * 1.5;
+            } else {
+                koszt = 50 * 2 + 50 * 1.5 + (liczba - 100);
+            }
+            if (staly.checked) koszt *= 0.8;
+
+            wynik.textContent = `Koszt ogłoszeń: ${koszt.toFixed(2)} zł`;
+        });
+    </script>
+</body>
+</html>

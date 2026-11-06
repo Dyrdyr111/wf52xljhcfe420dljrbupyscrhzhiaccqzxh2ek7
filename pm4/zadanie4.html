@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Suma wybranych liczb</title>
+</head>
+<body>
+    <h1>Suma wybranych liczb</h1>
+    <form id="liczby">
+        <div><label for="liczba1">Liczba 1:</label> <input type="number" id="liczba1" step="1"> <input type="checkbox" id="wybor1" aria-label="Uwzględnij liczbę 1"></div>
+        <div><label for="liczba2">Liczba 2:</label> <input type="number" id="liczba2" step="1"> <input type="checkbox" id="wybor2" aria-label="Uwzględnij liczbę 2"></div>
+        <div><label for="liczba3">Liczba 3:</label> <input type="number" id="liczba3" step="1"> <input type="checkbox" id="wybor3" aria-label="Uwzględnij liczbę 3"></div>
+        <div><label for="liczba4">Liczba 4:</label> <input type="number" id="liczba4" step="1"> <input type="checkbox" id="wybor4" aria-label="Uwzględnij liczbę 4"></div>
+        <div><label for="liczba5">Liczba 5:</label> <input type="number" id="liczba5" step="1"> <input type="checkbox" id="wybor5" aria-label="Uwzględnij liczbę 5"></div>
+    </form>
+    <p id="wynik" aria-live="polite">Suma zaznaczonych liczb: 0</p>
+
+    <script>
+        const formularz = document.getElementById("liczby");
+        const wynik = document.getElementById("wynik");
+
+        function obliczSume() {
+            let suma = 0;
+            for (let i = 1; i <= 5; i++) {
+                const pole = document.getElementById(`liczba${i}`);
+                const checkbox = document.getElementById(`wybor${i}`);
+                if (pole.value !== "" && !Number.isInteger(Number(pole.value))) {
+                    wynik.textContent = `Pole „Liczba ${i}” musi zawierać liczbę całkowitą.`;
+                    return;
+                }
+                if (checkbox.checked && pole.value === "") {
+                    wynik.textContent = `Wpisz liczbę całkowitą w polu „Liczba ${i}”.`;
+                    return;
+                }
+                if (checkbox.checked) suma += Number(pole.value);
+            }
+            wynik.textContent = `Suma zaznaczonych liczb: ${suma}`;
+        }
+
+        formularz.addEventListener("input", obliczSume);
+        formularz.addEventListener("change", obliczSume);
+    </script>
+</body>
+</html>
