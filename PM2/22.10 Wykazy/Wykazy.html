@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Wykazy</title>
+</head>
+<body>
+    <!-- Wykazy to listy. Wykaz numerowany to <ol>-->
+<ol>
+    <li>Pierwszy punkt listy numerowanej</li>
+    <li>Drugi punkt listy numerowanej </li>
+    <li>Trzeci punkt listy numerowanej</li>
+</ol>
+    <!-- Chcesz inne numerowanie?
+        użyj atrybutu type=""
+        A - według wielkich liter
+        a - według małych liter
+        I - według liczb rzymskich dużych
+        i - według małych liczb rzymskich
+        1 - domyślne - według cyfr
+        -->
+
+<hr>
+<ol type="A">
+    <li>Element A</li>
+    <li>Element B</li>
+    <li>Element C</li>
+</ol>
+<ol type="a">
+    <li>Element a</li>
+    <li>Element b</li>
+    <li>Element c</li>
+</ol>
+<ol type="I">
+    <li>Element I</li>
+    <li>Element II</li>
+    <li>Element III</li>
+    <li>Element IV</li>
+</ol>
+<ol type="i">
+    <li>Element i</li>
+    <li>Element ii</li>
+    <li>Element iii</li>
+    <li>element iv</li>
+</ol>
+
+<hr>
+
+<!-- Aby zmienić wartośc można dać <ol type="A" start="3"> lub <li value="5">. MA BYĆ NUMERYCZNIE!-->
+
+<ol type="A">
+    <li value="3">Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+    <li>Element 4</li>
+    <li value="1">Element 5</li>
+    <li>Element 6</li>
+    <li>Element 7</li>
+    <li>Element 8</li>
+</ol>
+
+<hr>
+
+<!-- Lista nieuporządkownana -> tworzymy <ul>, następne linie to <li>
+    <ul type=""> - typ punktów
+        disc - domyślnie kółko czarne w środku
+        circle - kółko otwarte
+        square - kwadrat-->
+
+<ul>
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+</ul>
+<ul type="circle">
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+</ul>
+<ul type="square">
+    <li>Element 1</li>
+    <li>Element 2</li>
+    <li>Element 3</li>
+</ul>
+
+<hr>
+
+<b><u>Wykazy zagnieżdżone </u></b> <small><sub>(czy jakoś tak)</sub></small><br><br>
+<ol type="I">
+    <li>Element I</li>
+        <ol type="1">
+            <li>Element 1.1</li>
+            <li>Element 1.2</li>
+            <li>Element 1.3</li>
+                <ul type="circle">
+                    <li>Element 1.3.a</li>
+                    <li>Element 1.3.b</li>
+                </ul>
+            <li>Element 1.4</li>
+        </ol>
+    <li>Element II</li>
+    <li>Element III</li>
+</ol>
+
+<hr>
+<b>Wykaz Definicyjny</b><br><br>
+
+<dl>
+    <dt>Pierwsze pojęcie</dt>
+    <dd>Definicja pierwszego pojęcia</dd>
+    <dt>Drugie pojęcie</dt>
+    <dd>Definicja drugiego pojęcia</dd>
+</dl>
+
+
+</body>
+</html>

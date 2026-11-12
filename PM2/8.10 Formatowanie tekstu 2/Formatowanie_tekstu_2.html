@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Formatowanie tekstu ciąg dalszy</title>
+</head>
+<body>
+    <!-- Znaczniki <h> to znaczniki blokowe,domyślnie są jeden pod drugim (czyli nie trzeba br)-->
+
+<h1>To jest główny tytuł</h1>
+<h2>To jest podtytuł głównego tytułu</h2>
+<h3>to jest jakiś tekst</h3>
+<h4>to jest jakiś tekst</h4>
+<h5>to jest jakiś tekst</h5>
+<h6>to jest najmniej ważny ale ważny tytułek</h6>
+
+    <!-- do pisania tekstu używami znacznika blokowego <p>
+         usuwa on wszystkie białe znaki np. kilkukrotne spacje -->
+<p>
+To jest treść pierwszego   akapitu
+To jest treść pierwszego akapitu
+To jest treść pierwszego akapitu
+</p>
+<p>
+To jest treść pierwszego   akapitu
+To jest treść pierwszego akapitu
+To jest treść pierwszego akapitu
+</p>
+
+    <!-- znacznik <pre> jest też blokowy ale zachowuje formatowanie
+        dodatkowo ma czcionkę "maszynową"-->
+<pre>
+To jest treść pierwszego   akapitu
+To jest treść pierwszego akapitu
+To jest treść pierwszego akapitu
+</pre>
+
+<!-- znacznik hr to linia pozioma-->
+<hr>
+
+
+<!-- znacznik bloku cytowanego używany przy powoływaniu sie na jakieś źródła, każdy wiersz rozpoczyna się zwykle tabulatorem (wcięcie)-->
+<blockquote cite="google.com">
+<p>
+    Wiadomo że taki a taki pomysł jest nie do zrealizowania. 
+    Ale żyje sobie jakiś nieuk, który o tym nie wie. I on właśnie dokonuje tego wynalazku.
+</p>
+</blockquote>
+
+<!-- znacznik krótkiego cytatu używamy go wewnątrz bloku tekstu, jest w cydzysłowie -->
+<q>Cytowany tekst</q>
+
+<br><br>
+
+<!-- znacznik <cite> jest do tytułów książek filmów różnych dzieł. nie myliś z atrybutem cite do blockquote-->
+<p>
+    Ostatnio przeczytałem książkę <cite>PHP i MySQL</cite> autoró Luke Welling i Laury <br>
+    Thomson. Jak napisali autorzy, książka prezentuje <q>metody tworzenia <br>
+    interaktwnych witryn WWW, począwszy od najprostszego formularza zamówienia, a <br>
+    skończywszy na złożonych bezpiecznych witrynach związanych z e-commerce</q>
+</p>
+
+
+<!-- img src - ścieżka pliku, alt - tekst alternatywny, title - napis po najechaniu myszą, height - wysokość, width - szerokość
+    figcaption służy do zamieszczenia podpisu pod tekstem
+    figure definiuje samodzielną część dokumentu do której następują odwołania z głównej treści jako do pojedyńczej jednostki może służyć do oznaczania
+    ilustracji, diagramów, zdjęc, wycinków kodu źródłowego itp.-->
+
+<figure>
+    <img src="pomidor.jpg" alt="Pomidor" title="Pomidor" height="300px" width="300px">
+    <figcaption>
+        Zdjęcie 1. Pomidor.
+    </figcaption>
+</figure>
+
+<!-- jest jeszcze znacznik fieldset ale użyjemy go przy formulazrach bo służy do grupowania pół formularzy-->
+
+
+
+<!-- akapit zapisany czcionką niebieską, pod tym zdjęcie i podpis. drugi niebieski akapit. 3 akapit na niebiesko z czerwonym ostatnim słowem, nagłowek h1 
+ kolejne zdjęcie z podpisem i akapitem-->
+</body>
+</html>
