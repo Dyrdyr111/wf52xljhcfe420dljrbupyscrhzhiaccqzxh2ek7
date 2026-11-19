@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Karta Pracy Tabele</title>
+</head>
+<style>
+    table, tr, td, th{
+        text-align: center;
+    }
+
+    #table1{
+        border-color: red;
+        height: 250px;
+        width: 300px;
+    }
+    #tr1{
+        background-color: green;
+    }
+    #tr2{
+        background-color: blue;
+    }
+    #tr3{
+        background-color: gray;
+    }
+    #tr4{
+        background-color: navy;
+    }
+    #table2{
+        border-collapse: collapse;
+        height: 200px;
+        width: 200px;
+    }
+    #table3{
+        border-color:gray;
+        height: 200px;
+        width: 400px;
+    }
+    #tr5{
+        background-color: orangered;
+        color: white;
+    }
+    #tr6{
+        background-color: orange;
+    }
+    .aleft{
+        text-align: left;
+    }
+    #table4{
+        height: 400px;
+        width: 400px;
+    }
+    .table4-1{
+        height: 100px;
+        width: 100px;
+    }
+
+</style>
+<body>
+    <h2>Tabela 1</h2>
+
+    <table id="table1" border="1px">
+        <tr id="tr1">
+            <th colspan="3">Nagłówek na zielonym tle</th>
+        </tr>
+        <tr id="tr2">
+            <th>nagłówek 1</th>
+            <th>nagłówek 2</th>
+            <th>nagłówek 3</th>
+        </tr>
+        <tr id="tr3">
+            <td>komórka 1</td>
+            <td>komórka 2</td>
+            <td>komórka 3</td>
+        </tr>
+        <tr id="tr4">
+            <td>komórka 4</td>
+            <td>komórka 5</td>
+            <td>komórka 6</td>
+        </tr>
+    </table>
+
+<hr>
+
+<h2>Tabela 2</h2>
+
+    <table border="1px" id="table2">
+        <tr>
+            <th>1</th>
+            <th>2</th>
+            <th>3</th>
+            <th>4</th>
+            <th>5</th>
+            <th>6</th>
+        </tr>
+        <tr>
+            <th>2</th>
+            <td>a</td>
+            <td colspan="2">b, c</td>
+            <td>d</td>
+            <td>e</td>
+        </tr>
+        <tr>
+            <th>3</th>
+            <td>f</td>
+            <td>g</td>
+            <td>h</td>
+            <td>i</td>
+            <td rowspan="2">j, o</td>
+        </tr>
+        <tr>
+            <th>4</th>
+            <td>k</td>
+            <td>l</td>
+            <td>m</td>
+            <td>n</td>
+        </tr>
+        <tr>
+            <th>5</th>
+            <td colspan="3" rowspan="2">p, q, r, u, v, w</td>
+            <td>s</td>
+            <td>t</td>
+        </tr>
+        <tr>
+            <th>6</th>
+            <td>y</td>
+            <td>z</td>
+        </tr>
+    </table>
+
+<hr>
+<h2>Tabela 3</h2>
+
+    <table id="table3" border="2px">
+        <tr id="tr5">
+            <th colspan="5">Rozkład zajęć dodatkowych z informatyki</th>
+        </tr>
+        <tr id="tr6">
+            <td>rok szkolny</td>
+            <td>miesiąc</td>
+            <td>dzień</td>
+            <td>godzina</td>
+            <td>sala</td>
+        </tr>
+        <tr>
+            <td class="aleft" rowspan="3">2017/2018</td>
+            <td class="aleft">wrzesień-styczeń</td>
+            <td>wtorek</td>
+            <td>8.00</td>
+            <td rowspan="3">116</td>
+        </tr>
+        <tr>
+            <td class="aleft">luty-kwiecień</td>
+            <td>czwartek</td>
+            <td>16.00</td>
+        </tr>
+        <tr>
+            <td class="aleft">maj-czerwiec</td>
+            <td>wtorek</td>
+            <td>16.00</td>
+        </tr>
+    </table>
+
+<hr>
+<h2>Tabela 4</h2>
+
+    <table id="table4" border="1px">
+        <tr>
+            <th colspan="3">Jakub Darkowski</th>
+        </tr>
+        <tr>
+            <td>Element 1.1</td>
+            <td>Element 1.2</td>
+            <td>Element 1.3</td>
+        </tr>
+        <tr>
+            <td colspan="3">Element 2.1-2.3</td>
+        </tr>
+        <tr>
+            <td>Element 3.1 <br>
+                <table class="table4-1" border="1px" align="center">
+                    <tr>
+                        <td rowspan="2">4.1-5.1</td>
+                        <td colspan="2">4.2-4.3</td>
+                    </tr>
+                    <tr>
+                        <td>5.2</td>
+                        <td>5.3</td>
+                    </tr>
+                </table>
+            </td>
+            <td>Element 3.2</td>
+            <td>
+                Element 3.3 <br>
+                <table class="table4-1" border="1px" align="center">
+                    <tr>
+                        <td>A1</td>
+                        <td>A2</td>
+                        <td>A3</td>
+                    </tr>
+                    <tr>
+                        <td>B1</td>
+                        <td>B2</td>
+                        <td>B3</td>
+                    </tr>
+                </table>
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

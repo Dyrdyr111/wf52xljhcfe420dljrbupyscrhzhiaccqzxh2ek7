@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <title>Tabele</title>
+</head>
+<style>
+    table{
+        text-align: center;
+    }
+    #table1{
+        width: 300px;
+        height: 200px;
+        text-align: center;
+        border-collapse: collapse;
+    }
+
+    .th1{
+        background-color: green;
+    }
+
+</style>
+<body>
+    <!-- <table>
+        <tr> wiersz
+        <td> komorka
+        <th> komorka naglowkowa
+        <caption> opis tabeli-->
+    <table border="1px">
+        <tr>
+            <td>1 komorka 1 wiersz</td>
+            <td>2 komorka 1 wiersz</td>
+            <td>3 komorka 1 wiersz</td>
+        </tr>
+        <tr>
+            <td>1 komorka 2 wiersz</td>
+            <td>2 komorka 2 wiersz</td>
+            <td>3 komorka 2 wiersz</td>
+        </tr>
+    </table>
+    
+    <!--
+    colspan="x" - scalanie poziome x to ilosc komorek
+    rowspan="x" - scalanie pionowe
+    cellpadding="x" - rozmiar odstepow miedzy komorkami
+    border="x" rozmiar obramowania (tr td table)
+    width heigth
+    cellspacing="x" (border-collapse:collapse w CSS) odstep miedzy komorkami
+    -->
+
+<br><br><hr><br><br>
+
+    <table id="table1" border="1px">
+        <tr>
+            <th class="th1">Imię</th>
+            <th class="th1">Nazwisko</th>
+            <th class="th1">Ocena</th>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>5</td>
+        </tr>
+        <tr>
+            <td>Jan</td>
+            <td>Kowalski</td>
+            <td>5</td>
+        </tr>
+    </table>
+        
+<br><br><hr><br><br>
+
+        <table border="1px" cellspacing="0" width="200px" height="200px">
+            <tr>
+                <td>A1</td>
+                <td colspan="2">A2+A3</td>
+            </tr>
+            <tr>
+                <td>B1</td>
+                <td>B2</td>
+                <td>B3</td>
+            </tr>
+            <tr>
+                <td colspan="2">C1+C2</td>
+                <td>C3</td>
+            </tr>
+        </table>
+
+<br><br><hr><br><br>
+
+        <table border="1px" cellspacing="0" width="200px" height="200px">
+            <tr>
+                <td>A1</td>
+                <td>A2</td>
+                <td rowspan="3">A3 + B3 + C3</td>
+            </tr>
+            <tr>
+                <td rowspan="2">B1 + C1</td>
+                <td>B2</td>
+            </tr>
+            <tr>
+                <td>C2</td>
+            </tr>
+        </table>
+
+<br><br><hr><br><br>
+
+        <table border="1px" cellspacing="0" width="400px" height="200px">
+            <tr>
+                <td>A1</td>
+                <td>A2</td>
+                <td rowspan="3">A3+B3+C3</td>
+                <td colspan="3">A4+A5+A6</td>
+            </tr>
+            <tr>
+                <td rowspan="2">B1+C2</td>
+                <td>B2</td>
+                <td>B4</td>
+                <td>B5</td>
+                <td>B6</td>
+            </tr>
+            <tr>
+                <td>C2</td>
+                <td colspan="2">C4+C5</td>
+                <td>C6</td>
+            </tr>
+        </table>
+<br><br><hr><br><br>
+        <table border="1px" cellspacing="0" width="800px" height="100px">
+            <tr>
+                <td>Pierwsza kormorka pierwszy wiersz</td>
+                <td>Druga komorka pierwszy wiersz</td>
+                <td>trzecia komorka pierwszy wiersz</td>
+            </tr>
+            <tr>
+                <td>pierwsza komorka drugi wiersz</td>
+                <td>
+                    <table border="1px" cellspacing="0">
+                        <tr>
+                            <td>Pierwsza komorka drugiej tabeli</td>
+                            <td>Druga komorka drugiej tabeli</td>
+                        </tr>
+                        <tr>
+                            <td>trzecia komorka drugiej tabeli</td>
+                            <td>czwarte komorka drugiej tabeli</td>
+                        </tr>
+                    </table>
+                </td>
+                <td>Trzecia komorka drugi wiersz</td>
+            </tr>
+        </table>
+
+</body>
+</html>
